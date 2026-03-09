@@ -3,6 +3,10 @@ package com.example.reviewparser.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(indexes = {
+        @Index(name = "idx_review_source_url", columnList = "sourceUrl"),
+        @Index(name = "idx_review_date", columnList = "date")
+})
 public class Review {
 
     @Id
@@ -36,5 +40,4 @@ public class Review {
 
     public String getSourceUrl() { return sourceUrl; }
     public void setSourceUrl(String sourceUrl) { this.sourceUrl = sourceUrl; }
-
 }
